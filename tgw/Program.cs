@@ -31,6 +31,7 @@ namespace tgw
             }
             //results output
             Console.WriteLine(conveyor.ToString());
+            Console.ReadKey();
         }
         static int GetDestinationsCount()
         {
@@ -96,6 +97,6 @@ namespace tgw
             }
             return percentageOfFail;
         }
-    }      
+    }
 }
 

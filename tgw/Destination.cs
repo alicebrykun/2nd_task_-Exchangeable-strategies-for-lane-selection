@@ -11,11 +11,10 @@ namespace tgw
         public double PercentageOfFail { get; protected set; }
         public int AttemptsToAddLoad { get; protected set; }
         public int LoadsDelivered { get; protected set; }
-        private Random rndNumber;
+        private static Random rndNumber = new Random();
 
         public Destination(double fail)
         {
-            rndNumber = new Random();
             PercentageOfFail = fail;
             AttemptsToAddLoad = 0;
             LoadsDelivered = 0;

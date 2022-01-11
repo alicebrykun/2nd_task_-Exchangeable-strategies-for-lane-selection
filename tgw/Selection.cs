@@ -26,29 +26,35 @@ namespace tgw
     {
         public RoundRobin(int destinationsCount, int seriesLength) : base(destinationsCount, seriesLength)
         {
-            //
+            // Destination at 0 index - for the failed
+            CurrentLane = 1;
         }
         public override int GetLaneId()
         {
-            if (SeriesCounter <= 0)
+            SeriesCounter++;
+            if (SeriesCounter > SeriesLength)
             {
-                SeriesCounter = SeriesLength - 1;
-                CurrentLane = CurrentLane % DestinationsCount + 1;
+                SeriesCounter = 1;
+                if (CurrentLane < DestinationsCount)
+                {
+                    CurrentLane++;
+                }
+                else
+                {
+                    CurrentLane = 1;
+                }
             }
-            else
-            {
-                SeriesCounter -= 1;
-            }
+
             return CurrentLane;
         }
     }
 
     class RandomSelect : Selection
     {
-        private Random rndNumber;
+        private static Random rndNumber = new Random();
         public RandomSelect(int destinationsCount, int seriesLength) : base(destinationsCount, seriesLength)
         {
-            rndNumber = new Random();
+            
         }
         public override int GetLaneId()
         {
