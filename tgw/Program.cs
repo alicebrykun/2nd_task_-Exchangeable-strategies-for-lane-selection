@@ -23,8 +23,8 @@ namespace tgw
             percentageOfFail = GetPercentageOfFail();
             loadsCount = GetLoadsCount();
 
-            Coveyor conveyor = new Coveyor(destinationsCount, strategy, sequenceLenght, percentageOfFail);
-            //simulating loads
+            Conveyor conveyor = new Conveyor(destinationsCount, strategy, sequenceLenght, percentageOfFail);
+            
             for (int i = 0; i < loadsCount; i++)
             {
                 conveyor.AddLoad();
