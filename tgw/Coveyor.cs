@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace tgw
 {
-    class Coveyor
+    class Conveyor
     {
         public List<Destination> destinationLanes { get; private set; }
         private Selection strategy;
         private int LoadsPassed;
-        public Coveyor(int destinationsCount, int selection, int sequenceLenght, double PercentageOfFail)
+        public Conveyor(int destinationsCount, int selection, int sequenceLenght, double PercentageOfFail)
         {
             LoadsPassed = 0;
             switch (selection)
